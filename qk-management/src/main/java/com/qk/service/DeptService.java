@@ -10,4 +10,10 @@ public interface DeptService {
     void addDept(Dept dept);
 
     PageResult listDepts(String name, Integer status, Integer page, Integer pageSize);
+
+    Dept getDept(Integer id);
+
+    void updateDept(Dept dept);
+
+    void removeDept(Integer id);
 }

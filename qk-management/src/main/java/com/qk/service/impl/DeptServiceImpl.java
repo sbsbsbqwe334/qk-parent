@@ -36,4 +36,20 @@ public class DeptServiceImpl implements DeptService {
         //第四步：封装返回数据
         return new PageResult(pageInfo.getTotal(), list);
     }
+
+    @Override
+    public Dept getDept(Integer id) {
+        return deptMapper.selectById(id);
+    }
+
+    @Override
+    public void updateDept(Dept dept) {
+        dept.setUpdateTime(LocalDateTime.now());
+        deptMapper.updateById(dept);
+    }
+
+    @Override
+    public void removeDept(Integer id) {
+        deptMapper.deleteById(id);
+    }
 }

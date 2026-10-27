@@ -26,4 +26,21 @@ public class DeptController {
         return Result.success(pageResult);
     }
 
+    @GetMapping("/depts/{id}")
+    public Result getDept(@PathVariable Integer id){
+        Dept dept = deptService.getDept(id);
+        return Result.success(dept);
+    }
+
+    @PutMapping("/depts")
+    public Result updateDept(@RequestBody Dept dept){
+        deptService.updateDept(dept);
+        return Result.success();
+    }
+
+    @DeleteMapping("/depts/{id}")
+    public Result deleteDept(@PathVariable Integer id) {
+        deptService.removeDept(id);
+        return Result.success();
+    }
 }

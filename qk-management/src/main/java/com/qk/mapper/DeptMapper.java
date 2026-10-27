@@ -1,8 +1,7 @@
 package com.qk.mapper;
 
 import com.qk.entity.Dept;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,4 +18,22 @@ public interface DeptMapper {
      * 查询部门列表
      */
     List<Dept> listDepts(String name, Integer status);
+
+    /**
+     * 根据id查询部门
+     */
+    @Select("select * from dept where id = #{id}")
+    Dept selectById(Integer id);
+
+    /**
+     * 更新部门
+     */
+    void updateById(Dept dept);
+
+    /**
+     * 删除部门
+     * @param id
+     */
+    @Delete("delete from dept where id = #{id}")
+    void deleteById(Integer id);
 }
